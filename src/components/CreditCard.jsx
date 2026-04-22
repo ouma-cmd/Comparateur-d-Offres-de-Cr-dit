@@ -1,18 +1,24 @@
 import "./CreditCard.css";
 
-function CreditCard({ offer, onSelect }) {
+function CreditCard({ offer }) {
+  const setShowDetails = () => {
+    const offerDetails = document.getElementById(offer.id.toString());
+    if (!offerDetails) {
+      console.error("offer not found");
+      return;
+    }
+    offerDetails.classList.toggle("info-expanded");
+  };
   return (
-    <div className="card" onClick={() => onSelect(offer)}>
+    <div className="card">
       {/* BADGE */}
       <div className="badge">
         {/* <span className={offer.recommended ? "recommended" : "standard offer"}>
           {offer.recommended ? "recommended" : "standard offer"}
         </span> */}
-        {offer.recommended ? (
-        //   <span className="recommended">Recommended</span>
-          <span className={offer.recommended ? "recommended" : "standard offer"}>Recommended</span>
-        ) : (
-          <span className="standard">Standard offer</span>
+        {offer.recommended && (
+          //   <span className="recommended">Recommended</span>
+          <span className="recommended">Recommended</span>
         )}
       </div>
 
@@ -37,10 +43,23 @@ function CreditCard({ offer, onSelect }) {
           <p className="label">Duration</p>
           <p>{offer.duration} years</p>
         </div>
+        <div id={offer.id} className="info-details">
+          <div>
+            <p className="mensualité">mensualité</p>
+            <p>{offer.mensualité}DH</p>
+          </div>
+
+          <div>
+            <p className="Total_Cost ">Total Cost </p>
+            <p>{offer.Total_Cost}</p>
+          </div>
+        </div>
       </div>
 
       {/* BUTTON */}
-      <button className="btn">view details</button>
+      <button className="btn" onClick={setShowDetails}>
+        view details
+      </button>
     </div>
   );
 }
