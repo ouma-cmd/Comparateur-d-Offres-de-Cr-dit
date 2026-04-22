@@ -43,7 +43,9 @@ function CreditCard({ offer }) {
           <p className="label">Duration</p>
           <p>{offer.duration} years</p>
         </div>
-        <div id={offer.id} className="info-details">
+       
+      </div>
+       <div id={offer.id} className="info-details">
           <div>
             <p className="mensualité">mensualité</p>
             <p>{offer.mensualité}DH</p>
@@ -54,7 +56,6 @@ function CreditCard({ offer }) {
             <p>{offer.Total_Cost}</p>
           </div>
         </div>
-      </div>
 
       {/* BUTTON */}
       <button className="btn" onClick={setShowDetails}>

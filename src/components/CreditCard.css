@@ -51,8 +51,10 @@
 
 .info-details {
   transform: scaleY(0); 
-  transform-origin: bottom;
+  display: flex;
+  justify-content: space-around;
 }
+
 .info-expanded {
   transform: scaleY(1);
 }
