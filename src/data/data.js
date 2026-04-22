@@ -1,4 +1,4 @@
- const offers = [
+const offers = [
   {
     id: 1,
     provider: "BANK AL-MAGHRIB",
@@ -6,7 +6,9 @@
     amount: 100000,
     rate: 5,
     duration: 5,
-    recommended: true
+    recommended: true,
+    mensualité: 1000,
+    Total_Cost: 1000000,
   },
   {
     id: 2,
@@ -15,7 +17,9 @@
     amount: 100000,
     rate: 6,
     duration: 5,
-    recommended: false
+    recommended: false,
+    mensualité: 1000,
+    Total_Cost: 1000000,
   },
   {
     id: 3,
@@ -24,8 +28,10 @@
     amount: 100000,
     rate: 7,
     duration: 5,
-    recommended: false
-  }
+    recommended: false,
+    mensualité: 1000,
+    Total_Cost: 1000000,
+  },
 ];
 
 export default offers;
