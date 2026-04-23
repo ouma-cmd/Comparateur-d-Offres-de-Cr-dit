@@ -1,0 +1,46 @@
+.info-details {
+  margin-top: 15px;
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* TABLE */
+.info-details table {
+  width: 200%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+/* HEADER */
+.info-details thead {
+  background: #F7F6FE;
+  color: black;
+}
+
+.info-details th {
+  padding: 10px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* BODY */
+.info-details td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+/* ROW hover */
+.info-details tbody tr:hover {
+  background: #f5f5ff;
+  transition: 0.2s;
+}
+
+/* LAST ROW */
+.info-details tbody tr:last-child td {
+  border-bottom: none;
+}

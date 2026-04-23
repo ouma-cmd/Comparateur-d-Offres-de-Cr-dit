@@ -1,51 +1,55 @@
 import "./CreditCard.css";
-
+import CalculTabl from "./CalculTabl";
 function CreditCard({ offer }) {
   const setShowDetails = () => {
     const offerDetails = document.getElementById(offer.id.toString());
-    if (!offerDetails) {
+    const offerTable = document.getElementById(
+      `offer-table-${offer.id.toString()}`,
+    );
+    if (!offerDetails || !offerTable) {
       console.error("offer not found");
       return;
     }
     offerDetails.classList.toggle("info-expanded");
+    offerTable.classList.toggle("info-expanded");
   };
   return (
-    <div className="card">
-      {/* BADGE */}
-      <div className="badge">
-        {/* <span className={offer.recommended ? "recommended" : "standard offer"}>
+    <>
+      <div className="card">
+        {/* BADGE */}
+        <div className="badge">
+          {/* <span className={offer.recommended ? "recommended" : "standard offer"}>
           {offer.recommended ? "recommended" : "standard offer"}
         </span> */}
-        {offer.recommended && (
-          //   <span className="recommended">Recommended</span>
-          <span className="recommended">Recommended</span>
-        )}
-      </div>
-
-      {/* LOGO */}
-      <div className="logo">
-        <img src={offer.logo} alt={offer.provider} />
-      </div>
-
-      {/* INFOS */}
-      <div className="infos">
-        <div>
-          <p className="label">Amount</p>
-          <p>{offer.amount} DH</p>
+          {offer.recommended && (
+            //   <span className="recommended">Recommended</span>
+            <span className="recommended">Recommended</span>
+          )}
         </div>
 
-        <div>
-          <p className="label">Interest Rate</p>
-          <p>{offer.rate}%</p>
+        {/* LOGO */}
+        <div className="logo">
+          <img src={offer.logo} alt={offer.provider} />
         </div>
 
-        <div>
-          <p className="label">Duration</p>
-          <p>{offer.duration} years</p>
+        {/* INFOS */}
+        <div className="infos">
+          <div>
+            <p className="label">Amount</p>
+            <p>{offer.amount} DH</p>
+          </div>
+
+          <div>
+            <p className="label">Interest Rate</p>
+            <p>{offer.rate}%</p>
+          </div>
+
+          <div>
+            <p className="label">Duration</p>
+            <p>{offer.duration} years</p>
+          </div>
         </div>
-       
-      </div>
-       <div id={offer.id} className="info-details">
+        <div id={offer.id} className="info-details">
           <div>
             <p className="mensualité">mensualité</p>
             <p>{offer.mensualité}DH</p>
@@ -57,11 +61,13 @@ function CreditCard({ offer }) {
           </div>
         </div>
 
-      {/* BUTTON */}
-      <button className="btn" onClick={setShowDetails}>
-        view details
-      </button>
-    </div>
+        {/* BUTTON */}
+        <button className="btn" onClick={setShowDetails}>
+          view details
+        </button>
+      </div>
+      <CalculTabl offer={offer}></CalculTabl>
+    </>
   );
 }
 
